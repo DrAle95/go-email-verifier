@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	scanner := bufio.NewScanner(os.Stderr)
+	scanner := bufio.NewScanner(os.Stdin)
 	fmt.Printf("Domain, hasMX, hasSPF, sprRecord, hasDMARC, dmarcRecord\n")
 
 	for scanner.Scan() {
@@ -18,7 +18,7 @@ func main() {
 	}
 
 	if err := scanner.Err(); err != nil {
-		log.Fatal("Error : could not read from input: %p\n", err)
+		log.Printf("Error : could not read from input: %v\n", err)
 	}
 }
 
